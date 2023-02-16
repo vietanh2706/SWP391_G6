@@ -1,5 +1,5 @@
 package control;
-
+//
 import dal.DepartmentDAO;
 import dal.DoctorDAO;
 import java.io.IOException;
