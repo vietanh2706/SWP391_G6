@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>LoginSevervlet</servlet-name>
+        <servlet-class>control.SigninSevervlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>create_medical_record</servlet-name>
+        <servlet-class>controller.create.create_medical_record</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>list_resevation_approved</servlet-name>
+        <servlet-class>controller.create.list_resevation_approved</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginSevervlet</servlet-name>
+        <url-pattern>/LoginSevervlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>create_medical_record</servlet-name>
+        <url-pattern>/create_medical_record</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>list_resevation_approved</servlet-name>
+        <url-pattern>/list-medical-approved</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            300
+        </session-timeout>
+    </session-config>
+    <resource-ref>
+        <res-ref-name>test</res-ref-name>
+        <res-type>javax.mail.Session</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/components/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/components/accessdenied.jsp</location>
+    </error-page>
+</web-app>
