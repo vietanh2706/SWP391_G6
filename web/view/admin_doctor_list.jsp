@@ -17,27 +17,6 @@
                 <th>Feedback</th>
                 <th>Update</th>
             </tr>
-            <c:forEach items="${requestScope.doctors}" var="d">  
-                <tr>
-                    <td>${d.user.id}</td>
-                    <td>${d.user.full_name}</td>
-                    <td>${d.user.phone}</td>
-                    <td>${d.user.email}</td>
-                    <td>
-                        <c:choose>
-                            <c:when test="${d.user.gender}">
-                                Male
-                            </c:when>
-                            <c:otherwise>
-                                Female
-                            </c:otherwise>
-                        </c:choose>
-                    </td>
-                    <td>${d.exp_year}</td>
-                    <td><a href="feedback?url=admin&service=view&doctor_id=${d.user.id}"><button>Feedbacks</button></a></td>
-                    <td><a href="DoctorUpdate?did=${d.user.id}"><button>Update</button></a></td>
-                </tr>
-            </c:forEach>
         </table>
 
     </body>
