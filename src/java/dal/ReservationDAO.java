@@ -77,6 +77,8 @@ public class ReservationDAO extends DBContext {
         }
     }
 
+    
+    
     public List<Reservation> getAllReservationByID(int id) {
         List<Reservation> list = new ArrayList<>();
         try {
@@ -107,6 +109,10 @@ public class ReservationDAO extends DBContext {
         return list;
     }
 
+    
+    
+    
+    
     public Reservation getReservationByID(int id) {
         try {
             String sql = "SELECT * FROM [Reservation] where [ID] = ?";
