@@ -1,6 +1,7 @@
 package control;
 
-
+/*
+*/
 import common.CBLog;
 import dal.DoctorDAO;
 import dal.ReservationDAO;
