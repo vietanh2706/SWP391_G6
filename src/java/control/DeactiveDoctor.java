@@ -31,7 +31,7 @@ public class DeactiveDoctor extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int id = Integer.parseInt(request.getParameter("did"));
             new DoctorDAO().deactive(id);
-            response.sendRedirect("doctorlist?url=admin");
+            //response.sendRedirect("doctorlist?url=admin");
         }
     }
 
