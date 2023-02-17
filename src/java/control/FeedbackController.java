@@ -91,21 +91,14 @@ public class FeedbackController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String content = request.getParameter("content");
-//        response.getWriter().print(request.getSession().getAttribute("doctor_id"));
         int doctor_id = Integer.parseInt((String) request.getSession().getAttribute("doctor_id"));
         int rate = Integer.parseInt(request.getParameter("rate"));
         System.out.println("content: " + content + ", doctor_id: " + doctor_id + ", rate: " + rate);
-//        User user = (User)request.getSession().getAttribute("acc");
-//        User user = new User();
           User user = (User) request.getSession().getAttribute("acc");
           System.out.println("user_id: "+user.getId());
           user.setId(user.getId());
-//        user.setId(5);
-//        user.setId(doctor_id);
-//        Feedback f = new Feedback();
         Doctor d = new Doctor();
         d.setId(doctor_id);
-//        f.setDoctor(d);
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date date_created = new java.sql.Date(utilDate.getTime());
         try {
@@ -123,6 +116,6 @@ public class FeedbackController extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
