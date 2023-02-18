@@ -79,6 +79,8 @@ public class ReservationDAO extends DBContext {
 
     
     
+    
+    
     public List<Reservation> getAllReservationByID(int id) {
         List<Reservation> list = new ArrayList<>();
         try {
@@ -88,7 +90,7 @@ public class ReservationDAO extends DBContext {
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
-                Reservation r = new Reservation(
+                Reservation reservation = new Reservation(
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
                         rs.getString("full_name"),
@@ -102,7 +104,7 @@ public class ReservationDAO extends DBContext {
                         rs.getString("detail_note"),
                         rs.getDate("created_date"),
                         rs.getString("email"));
-                list.add(r);
+                list.add(reservation);
             }
         } catch (SQLException e) {
         }
