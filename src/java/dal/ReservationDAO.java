@@ -18,98 +18,108 @@ import model.User;
  */
 public class ReservationDAO extends DBContext {
 
-    public List<Reservation> getAllReservation() {
-        List<Reservation> list = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM [Reservation]";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                Reservation r = new Reservation(
-                        rs.getInt("ID"),
-                        rs.getInt("user_id"),
-                        rs.getString("full_name"),
-                        rs.getString("phone"),
-                        rs.getDate("dob"),
-                        rs.getBoolean("gender"),
-                        rs.getString("insurance_code"),
-                        rs.getDate("examination_date"),
-                        rs.getString("examination_department"),
-                        rs.getInt("status"),
-                        rs.getString("detail_note"),
-                        rs.getDate("created_date"),
-                        rs.getString("email"));
-                list.add(r);
-            }
-        } catch (SQLException e) {
-        }
-        return list;
-    }
-
-    public void insert(Reservation r) {
-        String sql = "Insert into Reservation(full_name,email,examination_date,examination_department,phone,insurance_code,detail_note,user_id,dob,gender,status,created_date) "
-                + "values (?,?,?,?,?,?,?,?,?,?,?,?);";
-        PreparedStatement stm = null;
-        try {
-            stm = connection.prepareStatement(sql);
-            stm.setString(1, r.getFull_name());
-            stm.setString(2, r.getEmail());
-            stm.setDate(3, r.getExam_date());
-            stm.setString(4, "0");
-            stm.setString(5, r.getPhone());
-            stm.setString(6, r.getInsurance_code());
-            stm.setString(7, r.getDetail_note());
-            stm.setInt(8, r.getUser_id());
-            stm.setDate(9, r.getDob());
-            stm.setBoolean(10, r.isGender());
-            stm.setInt(11, r.getStatus());
-            stm.setDate(12, r.getCreated_date());
-
-            stm.executeUpdate();
-
-        } catch (SQLException e) {
-        } finally {
-            try {
-                stm.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(ReservationDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-
     
     
     
-    
-    public List<Reservation> getAllReservationByID(int id) {
-        List<Reservation> list = new ArrayList<>();
-        try {
-            String sql = "SELECT * FROM [Reservation] where [user_id] = ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, id);
-            ResultSet rs = stm.executeQuery();
-
-            while (rs.next()) {
-                Reservation reservation = new Reservation(
-                        rs.getInt("ID"),
-                        rs.getInt("user_id"),
-                        rs.getString("full_name"),
-                        rs.getString("phone"),
-                        rs.getDate("dob"),
-                        rs.getBoolean("gender"),
-                        rs.getString("insurance_code"),
-                        rs.getDate("examination_date"),
-                        rs.getString("examination_department"),
-                        rs.getInt("status"),
-                        rs.getString("detail_note"),
-                        rs.getDate("created_date"),
-                        rs.getString("email"));
-                list.add(reservation);
-            }
-        } catch (SQLException e) {
-        }
-        return list;
-    }
+//    public List<Reservation> getAllReservation() {
+//        List<Reservation> list = new ArrayList<>();
+//        
+//        
+//        try {
+//            
+//            String sql = "SELECT * FROM [Reservation]";
+//            
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            
+//            ResultSet rs = stm.executeQuery();
+//            while (rs.next()) {
+//                
+//                
+//                Reservation r = new Reservation(
+//                        rs.getInt("ID"),
+//                        rs.getInt("user_id"),
+//                        rs.getString("full_name"),
+//                        rs.getString("phone"),
+//                        rs.getDate("dob"),
+//                        rs.getBoolean("gender"),
+//                        rs.getString("insurance_code"),
+//                        rs.getDate("examination_date"),
+//                        rs.getString("examination_department"),
+//                        rs.getInt("status"),
+//                        rs.getString("detail_note"),
+//                        rs.getDate("created_date"),
+//                        rs.getString("email"));
+//                list.add(r);
+//            }
+//        } catch (SQLException e) {
+//        }
+//        return list;
+//    }
+//
+//    public void insert(Reservation r) {
+//        String sql = "Insert into Reservation(full_name,email,examination_date,examination_department,phone,insurance_code,detail_note,user_id,dob,gender,status,created_date) "
+//                + "values (?,?,?,?,?,?,?,?,?,?,?,?);";
+//        PreparedStatement stm = null;
+//        try {
+//            stm = connection.prepareStatement(sql);
+//            stm.setString(1, r.getFull_name());
+//            stm.setString(2, r.getEmail());
+//            stm.setDate(3, r.getExam_date());
+//            stm.setString(4, "0");
+//            stm.setString(5, r.getPhone());
+//            stm.setString(6, r.getInsurance_code());
+//            stm.setString(7, r.getDetail_note());
+//            stm.setInt(8, r.getUser_id());
+//            stm.setDate(9, r.getDob());
+//            stm.setBoolean(10, r.isGender());
+//            stm.setInt(11, r.getStatus());
+//            stm.setDate(12, r.getCreated_date());
+//
+//            stm.executeUpdate();
+//
+//        } catch (SQLException e) {
+//        } finally {
+//            try {
+//                stm.close();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(ReservationDAO.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//    }
+//
+//    
+//    
+//    
+//    
+//    public List<Reservation> getAllReservationByID(int id) {
+//        List<Reservation> list = new ArrayList<>();
+//        try {
+//            String sql = "SELECT * FROM [Reservation] where [user_id] = ?";
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setInt(1, id);
+//            ResultSet rs = stm.executeQuery();
+//
+//            while (rs.next()) {
+//                Reservation reservation = new Reservation(
+//                        rs.getInt("ID"),
+//                        rs.getInt("user_id"),
+//                        rs.getString("full_name"),
+//                        rs.getString("phone"),
+//                        rs.getDate("dob"),
+//                        rs.getBoolean("gender"),
+//                        rs.getString("insurance_code"),
+//                        rs.getDate("examination_date"),
+//                        rs.getString("examination_department"),
+//                        rs.getInt("status"),
+//                        rs.getString("detail_note"),
+//                        rs.getDate("created_date"),
+//                        rs.getString("email"));
+//                list.add(reservation);
+//            }
+//        } catch (SQLException e) {
+//        }
+//        return list;
+//    }
 
     
     
