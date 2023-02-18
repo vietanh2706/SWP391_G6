@@ -1,9 +1,12 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
     <head>
+        
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Reservation detail</title>
@@ -11,10 +14,12 @@
         <link href="css/pagination/paginate.css" rel="stylesheet" type="text/css"/>
         <script src="css/pagination/paginate.js" type="text/javascript"></script>
         <link rel="stylesheet" href="css/profile/profile.css">
+        
+        
     </head>
     <body>
         
-        <form action="ReservationDetail" method="post">
+         <form action="ReservationDetail" method="post">
             <div class="container">
                 <div class="main-body">
                     <!-- Breadcrumb -->
@@ -25,6 +30,8 @@
                             <li class="breadcrumb-item active" aria-current="page">Reservation</li>
                         </ol>
                     </nav>
+                    
+                    
                     <!-- /Breadcrumb -->
                     <div class="mb-2 d-flex justify-content-between align-items-center">
                         <div class="position-relative"> <span class="position-absolute search"><i class="fa fa-search"></i></span> <input class="form-control w-100" type="search" id="searchBox" placeholder="Search by order#, name..."> </div>
