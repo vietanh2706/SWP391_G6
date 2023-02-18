@@ -14,7 +14,7 @@ import model.User;
 
 /**
  *
- * @author HuuTrinh
+ * @author TuanThanh
  */
 public class ReservationDAO extends DBContext {
 
@@ -125,34 +125,35 @@ public class ReservationDAO extends DBContext {
     
     
     
-    public Reservation getReservationByID(int id) {
-        try {
-            String sql = "SELECT * FROM [Reservation] where [ID] = ?";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setInt(1, id);
-            ResultSet rs = stm.executeQuery();
-
-            while (rs.next()) {
-                Reservation r = new Reservation(
-                        rs.getInt("ID"),
-                        rs.getInt("user_id"),
-                        rs.getString("full_name"),
-                        rs.getString("phone"),
-                        rs.getDate("dob"),
-                        rs.getBoolean("gender"),
-                        rs.getString("insurance_code"),
-                        rs.getDate("examination_date"),
-                        rs.getString("examination_department"),
-                        rs.getInt("status"),
-                        rs.getString("detail_note"),
-                        rs.getDate("created_date"),
-                        rs.getString("email"));
-                return r;
-            }
-        } catch (SQLException e) {
-        }
-        return null;
-    }
+//   
+//    public Reservation getReservationByID(int id) {
+//        try {
+//            String sql = "SELECT * FROM [Reservation] where [ID] = ?";
+//            PreparedStatement stm = connection.prepareStatement(sql);
+//            stm.setInt(1, id);
+//            ResultSet rs = stm.executeQuery();
+//
+//            while (rs.next()) {
+//                Reservation r = new Reservation(
+//                        rs.getInt("ID"),
+//                        rs.getInt("user_id"),
+//                        rs.getString("full_name"),
+//                        rs.getString("phone"),
+//                        rs.getDate("dob"),
+//                        rs.getBoolean("gender"),
+//                        rs.getString("insurance_code"),
+//                        rs.getDate("examination_date"),
+//                        rs.getString("examination_department"),
+//                        rs.getInt("status"),
+//                        rs.getString("detail_note"),
+//                        rs.getDate("created_date"),
+//                        rs.getString("email"));
+//                return r;
+//            }
+//        } catch (SQLException e) {
+//        }
+//        return null;
+//    }
 
     public Reservation getNewReservation() {
         try {
