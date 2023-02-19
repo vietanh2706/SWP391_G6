@@ -15,7 +15,7 @@ import model.EyeRecord;
 
 /**
  *
- * @author Duc Anh
+ * @author Dong
  */
 public class EyeRecordDAO extends DBContext {
 
