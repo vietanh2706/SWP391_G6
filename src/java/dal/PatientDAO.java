@@ -18,7 +18,7 @@ import model.User;
 
 /**
  *
- * @author HuuTrinh
+ * @author Dong
  */
 public class PatientDAO extends DBContext {
 
