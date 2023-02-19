@@ -24,6 +24,10 @@
         <servlet-name>UpdateCommon</servlet-name>
         <servlet-class>control.UpdateCommon</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateEye</servlet-name>
+        <servlet-class>UpdateEye</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevervlet</servlet-name>
         <url-pattern>/LoginSevervlet</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>UpdateCommon</servlet-name>
         <url-pattern>/updatecommon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateEye</servlet-name>
+        <url-pattern>/updateeye</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
