@@ -16,6 +16,10 @@
         <servlet-name>abc</servlet-name>
         <servlet-class>control.abc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardServlett</servlet-name>
+        <servlet-class>control.DashboardServlett</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevervlet</servlet-name>
         <url-pattern>/LoginSevervlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>abc</servlet-name>
         <url-pattern>/abc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlett</servlet-name>
+        <url-pattern>/dashboardd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
