@@ -20,6 +20,10 @@
         <servlet-name>DashboardServlett</servlet-name>
         <servlet-class>control.DashboardServlett</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateCommon</servlet-name>
+        <servlet-class>control.UpdateCommon</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevervlet</servlet-name>
         <url-pattern>/LoginSevervlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>DashboardServlett</servlet-name>
         <url-pattern>/dashboardd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCommon</servlet-name>
+        <url-pattern>/updatecommon</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
