@@ -114,14 +114,13 @@
     </script>
 
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
+    
     <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
-    <!-- inject:js -->
+    
     <script src="assets/js/off-canvas.js" type="text/javascript"></script>
     <script src="assets/js/hoverable-collapse.js" type="text/javascript"></script>
     <script src="assets/js/misc.js" type="text/javascript"></script>
-    <!-- endinject -->
+    
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 
