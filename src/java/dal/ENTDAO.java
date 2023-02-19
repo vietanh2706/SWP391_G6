@@ -15,7 +15,7 @@ import model.EntRecord;
 
 /**
  *
- * @author Duc Anh
+ * @author Dong
  */
 public class ENTDAO extends DBContext {
 
