@@ -4,6 +4,9 @@
  */
 package control;
 
+import dal.MedicalRecordDAO;
+import dal.ReservationDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -15,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Dong
  */
-public class abc extends HttpServlet {
+public class ShowListDeleteController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +37,10 @@ public class abc extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet abc</title>");            
+            out.println("<title>Servlet ShowListDeleteController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet abc at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ShowListDeleteController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,7 +58,11 @@ public class abc extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          MedicalRecordDAO dao = new MedicalRecordDAO();
+        request.setAttribute("listMR", dao.getAllMedicalRecord());
+        request.setAttribute("Doctor", new UserDAO().getAllUser());
+        request.setAttribute("patient", new ReservationDAO().getAllReservation());
+        request.getRequestDispatcher("view/show_list_delete.jsp").forward(request, response);
     }
 
     /**

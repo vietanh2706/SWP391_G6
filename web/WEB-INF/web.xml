@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>abc</servlet-name>
-        <servlet-class>control.abc</servlet-class>
+        <servlet-class>control.ShowListCreate</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DashboardServlett</servlet-name>
