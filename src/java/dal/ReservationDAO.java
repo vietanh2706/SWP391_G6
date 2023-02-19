@@ -270,7 +270,7 @@ public class ReservationDAO extends DBContext {
     
     
     public static void main(String[] args) {
-        System.out.println(new ReservationDAO().ReserStatistic(2022));
+        System.out.println(new ReservationDAO().ReserStatistic(2021));
     }
 
     public Reservation getOne(int id) {
