@@ -12,6 +12,10 @@
         <servlet-name>list_resevation_approved</servlet-name>
         <servlet-class>controller.create.list_resevation_approved</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>abc</servlet-name>
+        <servlet-class>control.abc</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevervlet</servlet-name>
         <url-pattern>/LoginSevervlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>list_resevation_approved</servlet-name>
         <url-pattern>/list-medical-approved</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>abc</servlet-name>
+        <url-pattern>/abc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
