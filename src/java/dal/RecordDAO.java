@@ -39,6 +39,7 @@ public class RecordDAO extends DBContext{
                 mr.setMaxillofacial_id(rs.getInt("maxillofacial_id"));
                 mr.setDiag(rs.getString("diagnostic"));
                 mr.setConclusion(rs.getString("conclusion"));
+                
                 mr.setCode(rs.getString("code"));
                 mr.setStatus(rs.getInt("status"));
                 return mr;
