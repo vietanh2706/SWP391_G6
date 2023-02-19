@@ -14,7 +14,7 @@ import model.User;
 
 /**
  *
- * @author HuuTrinh
+ * @author Dong
  */
 public class ReservationDAO extends DBContext {
 
@@ -77,10 +77,6 @@ public class ReservationDAO extends DBContext {
         }
     }
 
-    
-    
-    
-    
     public List<Reservation> getAllReservationByID(int id) {
         List<Reservation> list = new ArrayList<>();
         try {
@@ -90,7 +86,7 @@ public class ReservationDAO extends DBContext {
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
-                Reservation reservation = new Reservation(
+                Reservation r = new Reservation(
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
                         rs.getString("full_name"),
@@ -104,17 +100,13 @@ public class ReservationDAO extends DBContext {
                         rs.getString("detail_note"),
                         rs.getDate("created_date"),
                         rs.getString("email"));
-                list.add(reservation);
+                list.add(r);
             }
         } catch (SQLException e) {
         }
         return list;
     }
 
-    
-    
-    
-    
     public Reservation getReservationByID(int id) {
         try {
             String sql = "SELECT * FROM [Reservation] where [ID] = ?";
