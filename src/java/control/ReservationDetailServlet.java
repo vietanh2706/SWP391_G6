@@ -53,7 +53,8 @@ public class ReservationDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User u = ((User) session.getAttribute("acc"));
+        
+        User u = ((User) session.getAttribute("acc"));        
         List<Reservation> list = new ReservationDAO().getAllReservationByID(u.getId());
         request.setAttribute("list", list);
         request.getRequestDispatcher("view/user-reservation.jsp").forward(request, response);
