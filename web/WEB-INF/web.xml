@@ -28,6 +28,10 @@
         <servlet-name>UpdateEye</servlet-name>
         <servlet-class>UpdateEye</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteMedicalRecordController</servlet-name>
+        <servlet-class>control.DeleteMedicalRecordController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginSevervlet</servlet-name>
         <url-pattern>/LoginSevervlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>UpdateEye</servlet-name>
         <url-pattern>/updateeye</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMedicalRecordController</servlet-name>
+        <url-pattern>/DeleteMedicalRecordController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
