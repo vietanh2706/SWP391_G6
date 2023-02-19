@@ -15,7 +15,7 @@ import model.PhysicalRecord;
 
 /**
  *
- * @author Duc Anh
+ * @author Dong
  */
 public class PhysicalRecordDAO extends DBContext {
 
