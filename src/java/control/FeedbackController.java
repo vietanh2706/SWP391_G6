@@ -62,6 +62,7 @@ public class FeedbackController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         String url = request.getParameter("url");
         String id_raw = request.getParameter("doctor_id");
         if (url.equals("admin")) {
