@@ -17,10 +17,6 @@ import model.Doctor;
 import model.Feedback;
 import model.User;
 
-/**
- *
- * @author ACER
- */
 @WebServlet(name = "FeedbackController", urlPatterns = {"/feedback"})
 public class FeedbackController extends HttpServlet {
 

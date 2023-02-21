@@ -17,10 +17,7 @@ import model.Doctor;
 import model.Feedback;
 import model.User;
 
-/**
- *
- * @author ACER
- */
+
 public class FeedbackDAO extends DBContext {
 
     /**
@@ -110,12 +107,6 @@ public class FeedbackDAO extends DBContext {
     }
 
     public static void main(String[] args) {
-//        User u = new User();
-//        u.setId(5);
-//        Doctor d = new Doctor();
-//        d.setId(2);
-//        Feedback f = new Feedback(1, u, d, "Doc is awsome", new Date(2020, 6, 15), 5);
-//        new FeedbackDAO().giveFeedback(f);\
         System.out.println(new FeedbackDAO().getList(0, -1).get(0).getDoctor().getUser().getFull_name());
     }
 }
