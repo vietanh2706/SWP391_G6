@@ -9,10 +9,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author asus
- */
 @WebServlet(name = "DeactiveDoctor", urlPatterns = {"/deactiveDoctor"})
 public class DeactiveDoctor extends HttpServlet {
 
@@ -31,7 +27,6 @@ public class DeactiveDoctor extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             int id = Integer.parseInt(request.getParameter("did"));
             new DoctorDAO().deactive(id);
-            //response.sendRedirect("doctorlist?url=admin");
         }
     }
 
@@ -57,6 +52,6 @@ public class DeactiveDoctor extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
