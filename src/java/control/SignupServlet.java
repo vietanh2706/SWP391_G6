@@ -59,6 +59,13 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("message","oke");
+        request.setAttribute("short","");
+        request.setAttribute("w_username","");
+        request.setAttribute("w_pass","");
+        request.setAttribute("w_email","");
+        request.setAttribute("empties","");
+        
         request.getRequestDispatcher("view/signup.jsp").forward(request, response);
     }
 

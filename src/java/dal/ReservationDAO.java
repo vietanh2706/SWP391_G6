@@ -153,6 +153,7 @@ public class ReservationDAO extends DBContext {
 
             while (rs.next()) {
                 Reservation r = new Reservation(
+                        
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
                         rs.getString("full_name"),
@@ -250,10 +251,12 @@ public class ReservationDAO extends DBContext {
                 + "values (?,?,?,?);";
         PreparedStatement stm = null;
         try {
+            stm = null;
             stm = connection.prepareStatement(sql);
             stm.setInt(1, reservationId);
             stm.setInt(2, Doctor);
             stm.setInt(3, userid);
+            
             stm.setString(4, department_time_hours+":"+department_time_minutes);
             stm.executeUpdate();
 
@@ -265,11 +268,12 @@ public class ReservationDAO extends DBContext {
                 Logger.getLogger(ReservationDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
     
     
     public static void main(String[] args) {
-        System.out.println(new ReservationDAO().ReserStatistic(2022));
+        System.out.println(new ReservationDAO().ReserStatistic(2021));
     }
 
     public Reservation getOne(int id) {

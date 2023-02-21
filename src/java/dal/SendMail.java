@@ -44,7 +44,7 @@ public class SendMail {
         }
     }
     public static void main(String[] args) {
-    String toEmail = "trinhnhhe151462@fpt.edu.vn";
+    String toEmail = "khanhdvhe151462@fpt.edu.vn";
     String subject = "Test javaMail API";
     String text = "Medical code : KK88MX46";
     new SendMail().sentEmail(toEmail, subject, text);

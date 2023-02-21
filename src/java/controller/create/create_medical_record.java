@@ -54,14 +54,14 @@ public class create_medical_record extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        int comon = 'c';
         int id = Integer.parseInt(request.getParameter("id"));
         Reservation re = new ReservationDAO().getOne(id);
 
         ArrayList<Type> type = new ArrayList<>();
         type = new TypeDAO().getAllByReservation(re);
 
-        
+       
         request.setAttribute("type", type);
         request.setAttribute("re", re);
         
