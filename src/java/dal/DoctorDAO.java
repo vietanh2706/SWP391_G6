@@ -146,6 +146,15 @@ public class DoctorDAO extends DBContext {
         return list;
     }
 
+    public void deactive(int id) {
+        try {
+            String sql = "UPDATE [User] SET status = 0 where ID = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, id);
+            stm.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
     public static void main(String[] args) {
         System.out.println(new DoctorDAO().getOne(1046));
     }
