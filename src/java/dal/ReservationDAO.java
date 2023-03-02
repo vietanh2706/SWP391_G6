@@ -219,6 +219,8 @@ public class ReservationDAO extends DBContext {
         String result="";
         PreparedStatement stm =null;
         int i=1;
+        
+        
         try {
             String sql = "select count(ID) as number, Year(examination_date) as Year,Month(examination_date) as Month from Reservation\n"
                     + "group by Year(examination_date),Month(examination_date)\n"
@@ -244,6 +246,7 @@ public class ReservationDAO extends DBContext {
                 }
             }
             stm.executeUpdate();
+            
         } catch (SQLException e) {
         }finally{
             try {
