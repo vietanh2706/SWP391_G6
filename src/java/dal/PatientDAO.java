@@ -65,9 +65,15 @@ public class PatientDAO extends DBContext {
         }
     }
 
+    
+    
     public ArrayList<Patient> getPatient() {
+        
+        
         ArrayList<Patient> list = new ArrayList<>();
         try {
+            
+            
             String sql = "SELECT * FROM Patient";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
