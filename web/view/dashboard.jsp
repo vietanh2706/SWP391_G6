@@ -29,6 +29,8 @@
              <!--partial:partials/_sidebar.html--> 
             <%@include file="../components/sidebar.jsp" %>
             <!-- partial -->
+            
+            
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
