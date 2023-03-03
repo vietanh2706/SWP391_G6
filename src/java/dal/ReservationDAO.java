@@ -227,11 +227,14 @@ public class ReservationDAO extends DBContext {
                     + "Order by Year(examination_date)";
 
             stm= connection.prepareStatement(sql);
+           
+            
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 int month = rs.getInt(3);
                 int yearDB= rs.getInt(2);
                 int numberOfReser=rs.getInt(1);
+               
                 if(yearDB==year&&i==month){
                     i++;
                     result = result + numberOfReser +",";
