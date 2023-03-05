@@ -123,7 +123,16 @@
                                     <h4 class="card-title">Patient Data table</h4>
                                     <div class="table-responsive">
                                         <table class="table" id="dataTable">
-                                           
+                                            <thead>
+                                                <tr>
+                                                    <th> Name </th>
+                                                    <th> Address </th>
+                                                    <th> Option </th>
+                                                    <th> Age </th>
+                                                    <th> Gender </th>
+                                                    <th> Insurance ID </th>
+                                                </tr>
+                                            </thead>
                                             <tbody>
                                                 <%int i = 0;%>
                                                 <c:forEach items="${requestScope.Patientlist}" var="ls">
