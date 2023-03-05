@@ -222,9 +222,9 @@ public class ReservationDAO extends DBContext {
         
         
         try {
-            String sql = "select count(ID) as number, Year(examination_date) as Year,Month(examination_date) as Month from Reservation\n"
-                    + "group by Year(examination_date),Month(examination_date)\n"
-                    + "Order by Year(examination_date)";
+            String sql = "SELECT COUNT(ID) AS number, Year(examination_date) AS Year,Month(examination_date) AS Month FROM Reservation\n"
+                    + "GROUP BY Year(examination_date),Month(examination_date)\n"
+                    + "ORDER BY Year(examination_date)";
 
             stm= connection.prepareStatement(sql);
            
@@ -235,15 +235,15 @@ public class ReservationDAO extends DBContext {
                 int yearDB= rs.getInt(2);
                 int numberOfReser=rs.getInt(1);
                
-                if(yearDB==year&&i==month){
+                if(yearDB==year && i==month){
                     i++;
                     result = result + numberOfReser +",";
                 }else{
-                    while(yearDB==year&&i!=month){
+                    while(yearDB==year && i!=month){
                         result += "0,";
                         i++;
                     }
-                    if(yearDB==year&&i==month){
+                    if(yearDB==year && i==month){
                         result = result + numberOfReser+",";
                     }
                 }
