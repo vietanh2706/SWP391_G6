@@ -215,6 +215,8 @@ public class ReservationDAO extends DBContext {
 
     }
 
+    
+    
     public String ReserStatistic(int year) {
         String result="";
         PreparedStatement stm =null;
@@ -248,10 +250,12 @@ public class ReservationDAO extends DBContext {
                     }
                 }
             }
+            
             stm.executeUpdate();
             
         } catch (SQLException e) {
         }finally{
+            
             try {
                 stm.close();
             } catch (SQLException ex) {
