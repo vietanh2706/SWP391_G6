@@ -29,6 +29,8 @@
              <!--partial:partials/_sidebar.html--> 
             <%@include file="../components/sidebar.jsp" %>
             <!-- partial -->
+            
+            
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
@@ -160,6 +162,9 @@
                                                         <td> ${ls.code} </td>
                                                     </tr>
                                                 </c:forEach>
+                                                    
+                                                    
+                                                    
                                                 <tr>
                                                     <td>Garrett Winters</td>
                                                     <td>Nevada,USA</td>
@@ -222,6 +227,8 @@
             <!-- page-body-wrapper ends -->
         </div>
         <!-- container-scroller -->
+        
+        
         <script>
             let options = {
                 numberPerPage: 10,

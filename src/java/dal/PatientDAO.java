@@ -65,9 +65,15 @@ public class PatientDAO extends DBContext {
         }
     }
 
+    
+    
     public ArrayList<Patient> getPatient() {
+        
+        
         ArrayList<Patient> list = new ArrayList<>();
         try {
+            
+            
             String sql = "SELECT * FROM Patient";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
@@ -88,12 +94,16 @@ public class PatientDAO extends DBContext {
         return list;
     }
 
+    
+    
     public Patient getPatientByIdd(int id) {
         try {
             String sql = "SELECT * FROM Patient WHERE id = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, id);
-            ResultSet rs = stm.executeQuery();
+            ResultSet rs = stm.
+                    
+            executeQuery();
             while (rs.next()) {
                 Patient p = new Patient();
                 p.setId(rs.getInt("id"));
