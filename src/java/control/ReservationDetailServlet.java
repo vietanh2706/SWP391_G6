@@ -53,20 +53,15 @@ public class ReservationDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User u = ((User) session.getAttribute("acc"));
+        
+        User u = ((User) session.getAttribute("acc"));        
         List<Reservation> list = new ReservationDAO().getAllReservationByID(u.getId());
         request.setAttribute("list", list);
         request.getRequestDispatcher("view/user-reservation.jsp").forward(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

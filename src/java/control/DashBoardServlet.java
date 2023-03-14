@@ -54,12 +54,18 @@ public class DashBoardServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ArrayList<Patient> list = new PatientDAO().getPatient();
+        
         request.setAttribute("Patientlist", list);
-        request.setAttribute("data", new ReservationDAO().ReserStatistic(2022));
+        
+        request.setAttribute("data", new ReservationDAO().ReserStatistic(2023));
+        
         request.getRequestDispatcher("view/dashboard.jsp").forward(request, response);
     }
 
@@ -71,6 +77,9 @@ public class DashBoardServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

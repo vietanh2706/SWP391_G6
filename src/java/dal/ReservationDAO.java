@@ -14,17 +14,27 @@ import model.User;
 
 /**
  *
- * @author HuuTrinh
+ * @author TuanThanh
  */
 public class ReservationDAO extends DBContext {
 
+    
+    
+    
     public List<Reservation> getAllReservation() {
         List<Reservation> list = new ArrayList<>();
+        
+        
         try {
+            
             String sql = "SELECT * FROM [Reservation]";
+            
             PreparedStatement stm = connection.prepareStatement(sql);
+            
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
+                
+                
                 Reservation r = new Reservation(
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
@@ -79,6 +89,8 @@ public class ReservationDAO extends DBContext {
 
     
     
+    
+    
     public List<Reservation> getAllReservationByID(int id) {
         List<Reservation> list = new ArrayList<>();
         try {
@@ -88,7 +100,7 @@ public class ReservationDAO extends DBContext {
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
-                Reservation r = new Reservation(
+                Reservation reservation = new Reservation(
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
                         rs.getString("full_name"),
@@ -102,7 +114,7 @@ public class ReservationDAO extends DBContext {
                         rs.getString("detail_note"),
                         rs.getDate("created_date"),
                         rs.getString("email"));
-                list.add(r);
+                list.add(reservation);
             }
         } catch (SQLException e) {
         }
@@ -113,6 +125,7 @@ public class ReservationDAO extends DBContext {
     
     
     
+   
     public Reservation getReservationByID(int id) {
         try {
             String sql = "SELECT * FROM [Reservation] where [ID] = ?";
@@ -151,6 +164,7 @@ public class ReservationDAO extends DBContext {
 
             while (rs.next()) {
                 Reservation r = new Reservation(
+                        
                         rs.getInt("ID"),
                         rs.getInt("user_id"),
                         rs.getString("full_name"),
@@ -202,37 +216,47 @@ public class ReservationDAO extends DBContext {
 
     }
 
+    
+    
     public String ReserStatistic(int year) {
         String result="";
         PreparedStatement stm =null;
         int i=1;
+        
+        
         try {
-            String sql = "select count(ID) as number, Year(examination_date) as Year,Month(examination_date) as Month from Reservation\n"
-                    + "group by Year(examination_date),Month(examination_date)\n"
-                    + "Order by Year(examination_date)";
+            String sql = "SELECT COUNT(ID) AS number, Year(examination_date) AS Year,Month(examination_date) AS Month FROM Reservation\n"
+                    + "GROUP BY Year(examination_date),Month(examination_date)\n"
+                    + "ORDER BY Year(examination_date)";
 
             stm= connection.prepareStatement(sql);
+           
+            
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 int month = rs.getInt(3);
                 int yearDB= rs.getInt(2);
                 int numberOfReser=rs.getInt(1);
-                if(yearDB==year&&i==month){
+               
+                if(yearDB==year && i==month){
                     i++;
                     result = result + numberOfReser +",";
                 }else{
-                    while(yearDB==year&&i!=month){
+                    while(yearDB==year && i!=month){
                         result += "0,";
                         i++;
                     }
-                    if(yearDB==year&&i==month){
+                    if(yearDB==year && i==month){
                         result = result + numberOfReser+",";
                     }
                 }
             }
+            
             stm.executeUpdate();
+            
         } catch (SQLException e) {
         }finally{
+            
             try {
                 stm.close();
             } catch (SQLException ex) {
@@ -248,10 +272,12 @@ public class ReservationDAO extends DBContext {
                 + "values (?,?,?,?);";
         PreparedStatement stm = null;
         try {
+            stm = null;
             stm = connection.prepareStatement(sql);
             stm.setInt(1, reservationId);
             stm.setInt(2, Doctor);
             stm.setInt(3, userid);
+            
             stm.setString(4, department_time_hours+":"+department_time_minutes);
             stm.executeUpdate();
 
@@ -263,11 +289,12 @@ public class ReservationDAO extends DBContext {
                 Logger.getLogger(ReservationDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
     
     
     public static void main(String[] args) {
-        System.out.println(new ReservationDAO().ReserStatistic(2022));
+        System.out.println(new ReservationDAO().ReserStatistic(2021));
     }
 
     public Reservation getOne(int id) {
