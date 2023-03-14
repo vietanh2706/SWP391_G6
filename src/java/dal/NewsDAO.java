@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dal;
 
 import java.sql.PreparedStatement;
@@ -18,10 +14,6 @@ import model.User;
 
 
 public class NewsDAO extends DBContext{
-    /**
-     * get all news
-     * @return 
-     */
     public ArrayList<News> getList() {
         ArrayList<News> list = new ArrayList<>();
         String sql = "SELECT n.id as 'newsID',n.title,n.url,n.description,n.image,n.date_create,j.id,j.name,j.image as 'jimage' FROM [News] n inner join Journalist j ON n.journalist_id = j.id";
