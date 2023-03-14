@@ -262,6 +262,8 @@
             }
         };
 
+        
+        
         _lignePaginate.sort = function (selectedPageNumber) {
             /** crea (filas) una variable para contener el grupo de filas
              * para ser mostrado en la página seleccionada,
