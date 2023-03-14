@@ -60,6 +60,7 @@ public class MedicalRecordDAO extends DBContext {
         } catch (SQLException ex) {
             Logger.getLogger(InternalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     public ArrayList<MedicalRecord> getAllMedicalRecord() {

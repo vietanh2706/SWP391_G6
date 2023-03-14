@@ -1,5 +1,5 @@
 package control;
-//test
+
 import dal.DepartmentDAO;
 import dal.DoctorDAO;
 import java.io.IOException;
@@ -10,10 +10,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author HuuTrinh
- */
+
 @WebServlet(name = "DoctorDetail", urlPatterns = {"/doctordetail"})
 public class DoctorDetail extends HttpServlet {
 

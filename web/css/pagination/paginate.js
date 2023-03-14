@@ -4,10 +4,7 @@
     function lignePaginate() {
         var _lignePaginate = {};
 
-        /**
-         * Inicializa todas las configuracion y validaciones antes de ejecutar
-         * la paginacion y el filtro (en caso de ser asignado)
-         **/
+        
         _lignePaginate.init = function (el, options = {numberPerPage: 10, goBar:false, pageCounter:true}, filter = [{el: null}]
                 ){
             setTableEl(el);
@@ -265,6 +262,8 @@
             }
         };
 
+        
+        
         _lignePaginate.sort = function (selectedPageNumber) {
             /** crea (filas) una variable para contener el grupo de filas
              * para ser mostrado en la página seleccionada,

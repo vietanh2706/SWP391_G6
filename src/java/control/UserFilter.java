@@ -32,12 +32,14 @@ public class UserFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
+    
+    
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+        boolean check = true;
         HttpSession session = httpRequest.getSession();
 
         User u = (User) session.getAttribute("acc");
