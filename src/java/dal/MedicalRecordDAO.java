@@ -144,4 +144,194 @@ public class MedicalRecordDAO extends DBContext {
             Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    public ArrayList<MedicalRecord> SearchById(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * from [dbo].[MedicalRecord]\n"
+                    + "WHERE status = 1 AND reservation_id is NOT NULL AND ID like ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+     public ArrayList<MedicalRecord> SearchByDoctorName(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM MedicalRecord m\n" +
+            "WHERE m.[status] = 1 AND m.reservation_id is NOT NULL AND m.doctor_id IN \n" +
+            "(SELECT u.ID FROM [User] u WHERE u.full_name LIKE ?)";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+     public ArrayList<MedicalRecord> SearchByPatientName(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM MedicalRecord m\n" +
+            "WHERE m.[status] = 1 AND m.reservation_id is NOT NULL AND m.reservation_id IN \n" +
+            "(SELECT r.ID FROM [Reservation] r WHERE r.full_name LIKE ?)";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+     public ArrayList<MedicalRecord> SearchByDiagnostic(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM [dbo].[MedicalRecord]\n"
+                    + "WHERE status = 1 AND reservation_id is NOT NULL AND diagnostic LIKE ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+     public ArrayList<MedicalRecord> SearchByConclusion(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM [dbo].[MedicalRecord]\n"
+                    + "WHERE status = 1 AND reservation_id is NOT NULL AND conclusion LIKE ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+     public ArrayList<MedicalRecord> SearchByCode(String keyword) {
+        ArrayList<MedicalRecord> list = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM [dbo].[MedicalRecord]\n"
+                    + "WHERE status = 1 AND reservation_id is NOT NULL AND code LIKE ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setString(1, "%" + keyword + "%");
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                MedicalRecord mr = new MedicalRecord();
+                mr.setId(rs.getInt(1));
+                mr.setDoctor_id(rs.getInt(2));
+                mr.setReservation_id(rs.getInt(3));
+                mr.setPhysical_id(rs.getInt(4));
+                mr.setInternal_id(rs.getInt(5));
+                mr.setEye_id(rs.getInt(6));
+                mr.setEnt_id(rs.getInt(7));
+                mr.setMaxillofacial_id(rs.getInt(8));
+                mr.setDiag(rs.getString(9));
+                mr.setConclusion(rs.getString(10));
+                mr.setStatus(rs.getInt(11));
+                mr.setCode(rs.getString(12));
+                list.add(mr);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(MedicalRecordDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }
