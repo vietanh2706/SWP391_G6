@@ -20,6 +20,10 @@
         <script src="css/pagination/paginate.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="img/favicon.ico" />
         <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <body>
         <!-- partial:partials/_navbar.html -->
@@ -45,6 +49,56 @@
                             </ul>
                         </nav>
                     </div>
+                    
+                     <!<!-- added -->
+                    <div class="row p-0 w-100 m-0">
+                            <div class="col-lg-4 col-md-12 col-sm-12">
+                            </div>
+                            <div class="col-lg-8 col-md-12 col-sm-12 filter py-3 px-0  flex-no-wrap">
+                                <!-- form search -->
+                                <form action="show_list_delete" class="form-inline my-2 my-lg-0 justify-content-end" style="flex: 0.5;" method="POST">
+                                    <!-- <button class="btn btn-light border my-2 my-sm-0 remove-border-radius-right"
+                                        type="submit">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                    <input class="form-control w-50 remove-border-radius-left mr-3" type="search"
+                                        placeholder="User Search" aria-label="Search"> -->
+
+
+
+                                    <div class="input-group" style="margin-right: 10px;">
+                                        <div class="input-group-prepend">
+                                            <button id="button-addon8" type="submit" class="btn"
+                                                    style="border: 1px solid #e3e3e3 ;"> <i class="fa fa-search"> </i> </button>
+                                        </div>
+                                        <input type="search" placeholder="User Search" aria-describedby="button-addon8" name="search"
+                                               class="form-control" style="width: 300px;">
+                                    </div>
+
+                                    <div class="input-group" style="margin-right: 10px;">
+                                        <div class="input-group-prepend">
+                                            <button id="button-addon8" type="submit" class="btn"
+                                                    style="border: 1px solid #e3e3e3 ;"> <i class="fas fa-filter"></i> Filter
+                                                by:</button>
+                                        </div>
+                                        <select class="form-control" id="exampleFormControlSelect1" aria-placeholder="Name" name="option">
+                                            <option selected>ID</option>
+                                            <option>Doctor</option>                  
+                                            <option>Patient</option>
+                                            <option>Diagnostic</option>
+                                            <option>Conclusion</option>
+                                            <option>Code</option>
+                                            
+                                        </select>
+                                    </div>
+
+                                    <button class="btn btn-light border " type="submit"
+                                            style="background-color: #5bc0de; color: white;">Search</button>
+                                </form>
+                            </div>
+                        </div>
+                    <!<!-- added -->
+                    
                     <div class="row">
                         <div class="card">
                             <div class="table-responsive">
